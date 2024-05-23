@@ -1,12 +1,16 @@
 // generateToken.js
 
-const jsonwebtoken = require("jsonwebtoken");
-require("dotenv").config();
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
-const secretKey = process.env.JWT_SECRET;
+dotenv.config();
 
-const generateToken = (email) => {
-    return jsonwebtoken.sign({ email }, secretKey, { expiresIn: "1d" });
+const secret_key = process.env.SECRET_KEY;
+
+export const generateToken = (email) => {
+  return jwt.sign({ data: email }, secret_key, { expiresIn: "1d" });
 };
 
-module.exports = generateToken;
+export const adminToken = (adminEmail) => {
+    return jwt.sign({ data: adminEmail }, secret_key, { expiresIn: "1d" });
+  };

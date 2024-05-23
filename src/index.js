@@ -1,9 +1,10 @@
+import 'dotenv/config';
 import express from "express";
+import instructorRouter from "../routes/instructorRouter.js";
 import cookieParser from "cookie-parser";
 const app = express();
-import connectDb from "../config/db";
-
-const userRouter = require("../routes/index"); // Corrected variable name
+import connectDb from '../config/db.js';
+import userRouter from "../routes/index.js"; // Corrected variable name
 const PORT = 3006;
 
 app.use(express.json());

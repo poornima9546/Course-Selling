@@ -5,7 +5,7 @@ dotenv.config();
 
 console.log(process.env.DB_URL);
 
-const connectDb = async()=>{
+export const connectDb = async()=>{
     try {
         await mongoose.connect(process.env.DB_URL)
         console.log("mongodb connected");
@@ -15,4 +15,4 @@ const connectDb = async()=>{
     
 };
 
-module.exports = connectDb;
+export default connectDb;
